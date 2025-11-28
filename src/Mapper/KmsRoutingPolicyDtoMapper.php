@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class KmsRoutingPolicyDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'name' => 'name', 'priority' => 'priority', 'strategy' => 'strategy', 'match' => 'match', 'providers' => 'providers', 'active' => 'active', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [ 'active' ];
