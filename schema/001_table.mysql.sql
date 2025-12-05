@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-mysql.yaml (map@74ce4f4)
+-- Auto-generated from schema-map-mysql.yaml (map@sha1:5E62933580349BE7C623D119AC9D1301A62F03EF)
 -- engine: mysql
 -- table:  kms_routing_policies
 
@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS kms_routing_policies (
   providers JSON NOT NULL,
   active BOOLEAN NOT NULL DEFAULT TRUE,
   created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  CONSTRAINT uq_kms_route_name UNIQUE (name),
+  CONSTRAINT ux_kms_route_name UNIQUE (name),
   INDEX idx_kms_route_active (active, priority DESC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
