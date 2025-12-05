@@ -1,6 +1,6 @@
 -- Auto-generated from joins-postgres.yaml (map@85230ed)
 -- engine: postgres
--- view:   kms_routing_policies_matrix
+-- view:   kms_routing_matrix
 
 -- Active KMS routing policies (ordered by priority)
 CREATE OR REPLACE VIEW vw_kms_routing_matrix AS
