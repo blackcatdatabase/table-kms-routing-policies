@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class KmsRoutingPolicyDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'name' => 'name', 'priority' => 'priority', 'strategy' => 'strategy', 'match' => 'match', 'providers' => 'providers', 'active' => 'active', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [ 'active' ];
@@ -39,13 +39,8 @@ final class KmsRoutingPolicyDtoMapper
 
     private static function tz(): DateTimeZone
     {
-        if (self::$tzObj instanceof DateTimeZone) {
-            return self::$tzObj;
-        }
-        try {
+        if (!(self::$tzObj instanceof DateTimeZone)) {
             self::$tzObj = new DateTimeZone(self::TZ);
-        } catch (\Throwable) {
-            self::$tzObj = new DateTimeZone('UTC');
         }
         return self::$tzObj;
     }
