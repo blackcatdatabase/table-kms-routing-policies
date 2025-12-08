@@ -6,13 +6,13 @@ Routing directives describing how tenants map to KMS providers.
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | active | BOOLEAN | NO | TRUE | Whether the policy is active. |
-| created_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| match | JSONB | YES |  | JSON filter describing when to apply the policy. |
+| match | JSON | YES |  | JSON filter describing when to apply the policy. |
 | name | VARCHAR(120) | NO |  | Policy name. |
-| priority | INTEGER | NO | 0 | Priority ordering (higher first). |
-| providers | JSONB | NO |  | JSON list of provider options/weights. |
-| strategy | TEXT | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
+| priority | INT | NO | 0 | Priority ordering (higher first). |
+| providers | JSON | NO |  | JSON list of provider options/weights. |
+| strategy | ENUM('prefer','require','avoid') | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
 
 ## Engine Details
 
@@ -47,7 +47,7 @@ Indexes:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_kms_routing_matrix | mysql | algorithm=MERGE, security=INVOKER | [packages\kms-routing-policies\schema\040_views_joins.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/kms-routing-policies/schema/040_views_joins.mysql.sql) |
-| vw_kms_routing_policies | mysql | algorithm=MERGE, security=INVOKER | [packages\kms-routing-policies\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/kms-routing-policies/schema/040_views.mysql.sql) |
-| vw_kms_routing_matrix | postgres |  | [packages\kms-routing-policies\schema\040_views_joins.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/kms-routing-policies/schema/040_views_joins.postgres.sql) |
-| vw_kms_routing_policies | postgres |  | [packages\kms-routing-policies\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/kms-routing-policies/schema/040_views.postgres.sql) |
+| vw_kms_routing_matrix | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views_joins.mysql.sql](schema\040_views_joins.mysql.sql) |
+| vw_kms_routing_policies | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_kms_routing_matrix | postgres |  | [schema\040_views_joins.postgres.sql](schema\040_views_joins.postgres.sql) |
+| vw_kms_routing_policies | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
