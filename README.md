@@ -81,10 +81,10 @@ _No foreign keys declared in docs/definitions.md (inbound or outbound)._
 _No engine differences detected._
 
 ## Constraints Snapshot
-- `created_at` – default=CURRENT_TIMESTAMP(6)
-- `strategy` – default=prefer, enum
-- `priority` – default=0
 - `active` – default=TRUE
+- `created_at` – default=CURRENT_TIMESTAMP(6)
+- `priority` – default=0
+- `strategy` – default=prefer, enum
 
 ## Schema Files
 | File | Engine |
