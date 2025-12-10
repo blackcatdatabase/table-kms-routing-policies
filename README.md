@@ -17,7 +17,7 @@
 | What | Link | Notes |
 | --- | --- | --- |
 | Schema map | [schema-map-postgres.yaml](https://github.com/blackcatacademy/blackcat-database/blob/main/scripts/schema/schema-map-postgres.yaml) | Source for table metadata |
-| Pkg folder | [packages\kms-routing-policies](https://github.com/blackcatacademy/blackcat-database/blob/main/packages\kms-routing-policies) | Repo location |
+| Pkg folder | [packages\kms-routing-policies](https://github.com/blackcatacademy/blackcat-database/blob/main/packages/kms-routing-policies) | Repo location |
 | Definitions | [docs/definitions.md](docs/definitions.md) | Column/index/FK docs |
 | Engine differences | [docs/definitions.md#engine-differences](docs/definitions.md#engine-differences) | Drift section in definitions |
 | Changelog | [CHANGELOG.md](CHANGELOG.md) | Recent changes |
@@ -81,10 +81,10 @@ _No foreign keys declared in docs/definitions.md (inbound or outbound)._
 _No engine differences detected._
 
 ## Constraints Snapshot
-- `active` – default=TRUE
 - `created_at` – default=CURRENT_TIMESTAMP(6)
-- `priority` – default=0
 - `strategy` – default=prefer, enum
+- `priority` – default=0
+- `active` – default=TRUE
 
 ## Schema Files
 | File | Engine |
