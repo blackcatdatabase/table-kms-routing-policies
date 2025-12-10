@@ -6,13 +6,13 @@ Routing directives describing how tenants map to KMS providers.
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | active | BOOLEAN | NO | TRUE | Whether the policy is active. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| match | JSON | YES |  | JSON filter describing when to apply the policy. |
+| match | mysql: JSON / postgres: JSONB | YES |  | JSON filter describing when to apply the policy. |
 | name | VARCHAR(120) | NO |  | Policy name. |
-| priority | INT | NO | 0 | Priority ordering (higher first). |
-| providers | JSON | NO |  | JSON list of provider options/weights. |
-| strategy | ENUM('prefer','require','avoid') | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
+| priority | mysql: INT / postgres: INTEGER | NO | 0 | Priority ordering (higher first). |
+| providers | mysql: JSON / postgres: JSONB | NO |  | JSON list of provider options/weights. |
+| strategy | mysql: ENUM('prefer','require','avoid') / postgres: TEXT | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
 
 ## Engine Details
 
