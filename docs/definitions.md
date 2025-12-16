@@ -5,14 +5,14 @@ Routing directives describing how tenants map to KMS providers.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| active | BOOLEAN | NO | TRUE | Whether the policy is active. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| match | JSON | YES |  | JSON filter describing when to apply the policy. |
 | name | VARCHAR(120) | NO |  | Policy name. |
-| priority | INT | NO | 0 | Priority ordering (higher first). |
-| providers | JSON | NO |  | JSON list of provider options/weights. |
-| strategy | ENUM('prefer','require','avoid') | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
+| priority | mysql: INT / postgres: INTEGER | NO | 0 | Priority ordering (higher first). |
+| strategy | mysql: ENUM('prefer','require','avoid') / postgres: TEXT | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
+| match | mysql: JSON / postgres: JSONB | YES |  | JSON filter describing when to apply the policy. |
+| providers | mysql: JSON / postgres: JSONB | NO |  | JSON list of provider options/weights. |
+| active | BOOLEAN | NO | TRUE | Whether the policy is active. |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 
 ## Engine Details
 
@@ -47,7 +47,7 @@ Indexes:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_kms_routing_matrix | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views_joins.mysql.sql](schema\040_views_joins.mysql.sql) |
-| vw_kms_routing_policies | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
-| vw_kms_routing_matrix | postgres |  | [schema\040_views_joins.postgres.sql](schema\040_views_joins.postgres.sql) |
-| vw_kms_routing_policies | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_kms_routing_matrix | mysql | algorithm=MERGE, security=INVOKER | [../schema/040_views_joins.mysql.sql](../schema/040_views_joins.mysql.sql) |
+| vw_kms_routing_policies | mysql | algorithm=MERGE, security=INVOKER | [../schema/040_views.mysql.sql](../schema/040_views.mysql.sql) |
+| vw_kms_routing_matrix | postgres |  | [../schema/040_views_joins.postgres.sql](../schema/040_views_joins.postgres.sql) |
+| vw_kms_routing_policies | postgres |  | [../schema/040_views.postgres.sql](../schema/040_views.postgres.sql) |
