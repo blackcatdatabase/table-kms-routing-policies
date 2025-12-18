@@ -1,0 +1,32 @@
+{
+  "tables": {
+    "kms_routing_policies": {
+      "columns": {
+        "active": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "match": {
+          "strategy": "passthrough"
+        },
+        "name": {
+          "strategy": "passthrough"
+        },
+        "priority": {
+          "strategy": "passthrough"
+        },
+        "providers": {
+          "strategy": "passthrough"
+        },
+        "strategy": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
