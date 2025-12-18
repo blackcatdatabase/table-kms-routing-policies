@@ -3,16 +3,16 @@
 Routing directives describing how tenants map to KMS providers.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| name | VARCHAR(120) | NO |  | Policy name. |
-| priority | mysql: INT / postgres: INTEGER | NO | 0 | Priority ordering (higher first). |
-| strategy | mysql: ENUM('prefer','require','avoid') / postgres: TEXT | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |
-| match | mysql: JSON / postgres: JSONB | YES |  | JSON filter describing when to apply the policy. |
-| providers | mysql: JSON / postgres: JSONB | NO |  | JSON list of provider options/weights. |
-| active | BOOLEAN | NO | TRUE | Whether the policy is active. |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| name | VARCHAR(120) | NO |  | Policy name. |  |
+| priority | mysql: INT / postgres: INTEGER | NO | 0 | Priority ordering (higher first). |  |
+| strategy | mysql: ENUM('prefer','require','avoid') / postgres: TEXT | NO | prefer | Routing strategy. (enum: prefer, require, avoid) |  |
+| match | mysql: JSON / postgres: JSONB | YES |  | JSON filter describing when to apply the policy. |  |
+| providers | mysql: JSON / postgres: JSONB | NO |  | JSON list of provider options/weights. |  |
+| active | BOOLEAN | NO | TRUE | Whether the policy is active. |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
 
 ## Engine Details
 
